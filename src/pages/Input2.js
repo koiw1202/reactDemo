@@ -1,43 +1,34 @@
-import React, { useState } from 'react' ;
-
-const Input2 = () => {
-
-    const [inputs, setInputs] = useState({
-         userName: ""
-        ,email: ""
-        ,tel: ""
-    }) ;
-
-    const onChange = (e) => {
-        const value = e.target.value ;
-        const id = e.target.id ;
-
-        setInputs({
-            ...inputs,
-            [id]: value,
-            
-        })
-
-        console.log(inputs) ;
-    }
-
+import React from 'react'
+const User = ({userData}) => {
     return (
-        <div>
-            <div>
-                <label>이름</label>
-                <input type="text" id="userName" value={inputs.userName} onChange={onChange}></input>
-            </div>
-            <div>
-                <label>이메일</label>
-                <input type="email" id="email" value={inputs.email} onChange={onChange}></input>
-            </div>
-            <div>
-                <label>전화번호</label>
-                <input type="tel" id="tel" value={inputs.tel} onChange={onChange}></input>
-            </div>
-
-        </div>
+        <tr>
+            <td>{userData.name}</td>
+            <td>{userData.email}</td>
+        </tr>
     )
 }
 
-export default Input2 ;
+const UserList = () => {
+    const users = [
+        {email : 'ryu@gmail.com', name: '유재석'},
+        {email : 'kim@gmail.com', name: '김종국'},
+        {email : 'ha@gmail.com', name: '하하'},
+        {email : 'song@gmail.com', name: '송지효'},
+    ] ;
+
+    return (
+        <table>
+            <thread>
+                <tr>
+                    <th>이름</th>
+                    <th>이메일</th>
+                </tr>
+            </thread>
+            <tbody>
+            {users.map(user => <User userData = {user} />)}
+            </tbody>
+        </table>
+    )
+}
+
+export default UserList ;
