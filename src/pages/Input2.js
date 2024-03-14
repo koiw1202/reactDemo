@@ -1,10 +1,10 @@
 import React from 'react'
 
-const User = ({userData}) => {
+const User = ({user}) => {
     return (
         <tr>
-            <td>{userData.name}</td>
-            <td>{userData.email}</td>
+            <td>{user.name}</td>
+            <td>{user.email}</td>
         </tr>
     )
 }
@@ -26,7 +26,7 @@ const UserList = () => {
                 </tr>
             </thread>
             <tbody>
-            {users.map(user => <User userData = {user} />)}
+            {users.map(user => <User user = {user} />)}
             </tbody>
         </table>
     )
